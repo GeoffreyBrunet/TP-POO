@@ -14,8 +14,9 @@ class Character:
     def set_attackPoints(self, attackPoints):
         self.attackPoints = attackPoints
     def attack(self, target):
-        target.set_lifePoints(target.get_lifePoints() - self.attackPoints)
-        print("target have ", target.get_lifePoints(), " life points")
+        ratioDmg = random.randint(1,10)/10
+        target.set_lifePoints(target.get_lifePoints() - self.attackPoints * ratioDmg)
+        print("target have ", target.get_lifePoints(), " lp")
 
 # Warrior class
 class Warrior(Character):
@@ -48,6 +49,8 @@ class Wizard(Character):
 def game():
     player1 = Warrior()
     player2 = Wizard()
+    print("player 1 have ", player1.get_lifePoints ," life points")
+    print("player 1 have ", player1.get_lifePoints ," life points")
     while player1.lifePoints >= 0 or player2.lifePoints >= 0:
         player1.attack(player2)
         time.sleep(1)
