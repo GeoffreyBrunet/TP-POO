@@ -1,6 +1,7 @@
 import random
 import time
 
+# Character class
 class Character:
     lifePoints = 100
     def get_lifePoints(self):
@@ -12,7 +13,11 @@ class Character:
         return self.attackPoints
     def set_attackPoints(self, attackPoints):
         self.attackPoints = attackPoints
+    def attack(self, target):
+        target.set_lifePoints(target.get_lifePoints() - self.attackPoints)
+        print("target have ", target.get_lifePoints(), " life points")
 
+# Warrior class
 class Warrior(Character):
     lifePoints = Character.lifePoints + 20
     def get_lifePoints(self):
@@ -25,6 +30,7 @@ class Warrior(Character):
     def set_attackPoints(self, attackPoints):
         self.attackPoints = attackPoints
 
+# Wizard class
 class Wizard(Character):
     lifePoints = Character.lifePoints
     def get_lifePoints(self):
@@ -39,27 +45,27 @@ class Wizard(Character):
     def drinkPotion(self):
         self.lifePoints += 15
 
-def warriorDamage():
-    ratioDmg = random.randint(1,10)/10
-    Dmg = Warrior.attackPoints * ratioDmg
-    attack = Wizard.set_lifePoints - Dmg
-    print(Wizard.get_lifePoints)
-    return attack
+def game():
+    player1 = Warrior()
+    player2 = Wizard()
+    while player1.lifePoints >= 0 or player2.lifePoints >= 0:
+        player1.attack(player2)
+        time.sleep(1)
+        player2.attack(player1)
+        time.sleep(1)
 
-def wizardDamage():
-    ratioDmg = random.randint(1,10)/10
-    Dmg = Wizard.attackPoints * ratioDmg
-    attack = Warrior.set_lifePoints - Dmg
-    print(Warrior.get_lifePoints)
-    return attack
 
 if __name__ == "__main__":
-    if Warrior.lifePoints == 0:
-        print("Warrior loose")
-    elif Wizard.lifePoints == 0:
-        print("Wizard loose")
-    else:
-        warriorDamage()
-        time.sleep(1)
-        wizardDamage()
-        time.sleep(1)
+    game()
+    
+
+    #if Warrior.lifePoints == 0:
+    #    print("Warrior loose")
+    #elif Wizard.lifePoints == 0:
+    #    print("Wizard loose")
+    #else:
+    #    warriorDamage()
+    #    time.sleep(1)
+    #    wizardDamage()
+    #    time.sleep(1)
+ 
