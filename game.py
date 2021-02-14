@@ -2,8 +2,8 @@ import classes_TP
 import random
 import time
 
-class launch:
-    def launchGame(self):
+class launchGame:
+    def launch(self):
         player1 = classes_TP.Warrior()
         player2 = classes_TP.Wizard()
         print("player 1 have ", player1.lifePoints ," life points")

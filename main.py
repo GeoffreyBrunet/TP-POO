@@ -1,5 +1,5 @@
 import game
 
-game = game.launch()
+game = game.launchGame()
 if __name__ == "__main__":
-    game.launchGame()
+    game.launch()
