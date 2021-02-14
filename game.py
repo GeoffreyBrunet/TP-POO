@@ -8,7 +8,7 @@ class launchGame:
         player2 = classes_TP.Wizard()
         print("player 1 have ", player1.lifePoints ," life points")
         print("player 2 have ", player2.lifePoints ," life points")
-        while player1.lifePoints >= 0 or player2.lifePoints >= 0:
+        while player1.get_lifePoints() >= 0 or not player2.get_lifePoints() >= 0:
             print("It's Warrior turn !")
             player1.attack(player2)
             selfHit = random.randint(1,5)
