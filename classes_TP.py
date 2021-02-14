@@ -19,6 +19,7 @@ class Character:
 # Warrior class
 class Warrior(Character):
     lifePoints = Character.lifePoints + 20
+    warriorVictory = 0
     def get_lifePoints(self):
         return self.lifePoints
     def set_lifePoints(self, lifePoints):
@@ -41,6 +42,7 @@ class Warrior(Character):
 class Wizard(Character):
     lifePoints = Character.lifePoints
     potion = 5
+    wizardVictory = 0
     def get_lifePoints(self):
         return self.lifePoints
     def set_lifePoints(self, lifePoints):
@@ -52,11 +54,12 @@ class Wizard(Character):
         self.attackPoints = attackPoints
     def drinkPotion(self):
         tryHeal = random.randint(1,2)
-        if tryHeal == 1:
-            self.lifePoints += 15
-            self.potion -= 1
-            print("Healed ! You have", self.potion, "potions.")
-        else:
-            print("Wizard don't heal himself.")
+        while self.potion > 0:
+            if tryHeal == 1:
+                self.lifePoints += 15
+                self.potion -= 1
+                print("Healed ! You have", self.potion, "potions.")
+            else:
+                print("Wizard don't heal himself.")
         
         
