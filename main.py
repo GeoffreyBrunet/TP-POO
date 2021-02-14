@@ -2,6 +2,8 @@ import game
 import time
 
 game = game.launchGame()
+warriorVictory = 0
+wizardVictory = 0
 # start game when main.py is started
 if __name__ == "__main__":
     print("Want play to hero smash v1 ?")
