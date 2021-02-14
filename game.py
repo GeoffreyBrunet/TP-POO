@@ -3,6 +3,7 @@ import random
 import time
 
 class launchGame:
+    #function for start a game
     def launch(self):
         player1 = classes_TP.Warrior()
         player2 = classes_TP.Wizard()
